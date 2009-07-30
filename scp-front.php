@@ -30,24 +30,12 @@ function scp_js() {
         $options['message'] = apply_filters('display_smilies', $options['message']);
         echo <<<JS
 <script type="text/javascript">
-    jQuery(document).ready(function(){
-        jQuery("p:has(textarea)").after("<p class='scp_message'>{$options['message']}</p>");
-    });
+    var cf = document.getElementById("commentform");
+    cf.innerHTML += "<p class='scp_message' style='color:#EB5050;clear:both;'>{$options['message']}</p>";
 </script>
 JS;
     }
 }
 
-/**
- * 提示CSS
- */
-function scp_css() {
-    echo <<<CSS
-<style type="text/css">
-/*<![CDATA[*/
-p.scp_message strong{color: #EB5050;}
-/*]]>*/
-</style>
-CSS;
-}
 /* EOF scp-front.php */
+/* ./wp-content/plugins/some-chinese-please/scp-front.php */

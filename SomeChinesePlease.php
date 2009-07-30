@@ -52,7 +52,8 @@ else{
     require 'scp-front.php';
     wp_enqueue_script('jquery');
     add_action('wp_footer', 'scp_js');
-    add_action('wp_head', 'scp_css');
     add_filter('preprocess_comment', 'scp_check_comment');
 }
+
 /* EOF SomeChinesePlease.php */
+/* ./wp-content/plugins/some-chinese-please/SomeChinesePlease.php */

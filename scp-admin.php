@@ -48,19 +48,24 @@ function scp_setting_page() {
     <h2>"Some Chinese Please!"设置</h2>
     <form name="form1" method="post" action="<?php echo wp_nonce_url('./options-general.php?page=' . SCP_BASEFOLDER . '/scp-admin.php'); ?>">
         <input type="hidden" name="scp_submit_hidden" value="yes">
-        <p>
-            <label for="scp_block_message">"Some Chinese Please!"捕获无中文内容评论时的提示：</label><br />
+        <fieldset style="margin: 10px;">
+            <legend>"Some Chinese Please!"捕获无中文内容评论时的提示：</legend>
             <textarea name="scp_block_message" cols="80" rows="5" id="scp_block_message" class="scp_setting"><?php echo $scp_blogk_message; ?></textarea>
-        </p>
-        <p>
-            <label for="show_message">是否显示在评论框下：</label><input type="checkbox" name="show_message" id="show_message" <?php if ($scp_options['show_message'] == 'show') echo 'checked="checked"';?> value="show" />
-        </p>
-        <p class="submit">
+            <p>提示：可在提示内容中添加表情，使提示更加醒目。例如 :!: ， :)…… </p>
+        </fieldset>
+        <fieldset style="margin: 10px;">
+            <legend>是否在评论框下端显示提示：</legend>
+            <input type="checkbox" name="show_message" id="show_message" <?php if ($scp_options['show_message'] == 'show') echo 'checked="checked"';?> value="show" />
+            <label for="show_message">显示</label>
+        </fieldset>
+        <fieldset class="submit" style="margin: 10px;">
+            <legend>更新选项</legend>
             <input type="submit" name="Submit" value="更新" />
-        </p>
+        </fieldset>
     </form>
 </div>
 <?php
 }
 
 /* EOF scp-admin.php */
+/* ./wp-content/plugins/some-chinese-please/scp-admin.php */

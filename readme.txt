@@ -3,8 +3,8 @@ Contributors: 冰古
 Donate link: http://wanwp.com/plugins/some-chinese-please/
 Tags: comments, spam, Chinese
 Requires at least: 2.6
-Tested up to: 2.8
-Stable tag: 1.0.1
+Tested up to: 2.8.2
+Stable tag: 1.0.2
 
 用中文写作的blog必备的防御spam插件
 
@@ -15,7 +15,12 @@ Stable tag: 1.0.1
 
 == Changelog ==
 
-** 1.0.1 **
+= 1.0.2 =
+
+* 用小段的JavaScript代替jQuery。
+* 提示中可使用WordPress内置的表情丰富提示内容。
+
+= 1.0.1 =
 
 * 增加设置子菜单，用于设置是否在留言框的底部显示一段英文提示，告知留言者要在留言中添加中文才能通过spam测试。
 

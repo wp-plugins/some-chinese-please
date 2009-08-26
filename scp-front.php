@@ -29,10 +29,10 @@ function scp_js() {
         $options['message'] = apply_filters('scp_message', $options['message']);
         $options['message'] = apply_filters('display_smilies', $options['message']);
         echo <<<JS
-<script type="text/javascript"><!--
+<script type="text/javascript"><!--//--><![CDATA[//><!--
     var cf = document.getElementById("commentform");
     cf.innerHTML += "<p class='scp_message' style='color:#EB5050;clear:both;'>{$options['message']}</p>";
-//--></script>
+//--><!]]></script>
 JS;
     }
 }

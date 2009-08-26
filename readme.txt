@@ -3,8 +3,8 @@ Contributors: 冰古
 Donate link: http://wanwp.com/plugins/some-chinese-please/
 Tags: comments, spam, Chinese
 Requires at least: 2.6
-Tested up to: 2.8.3
-Stable tag: 1.0.3
+Tested up to: 2.8.4
+Stable tag: 1.0.4
 
 用中文写作的blog必备的防御spam插件
 
@@ -14,6 +14,11 @@ Stable tag: 1.0.3
 它可以有效地拦截内容中不带有中文字的comment和trackback(pingback)，不写入数据库中，可有效地减小spam对blog服务器的无谓使用。
 
 == Changelog ==
+
+= 1.0.4 =
+
+* 清除多余的wp_enqueue_script('jquery');
+* 仅在单篇文章或页面中加入js提示。
 
 = 1.0.3 =
 

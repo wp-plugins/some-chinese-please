@@ -1,20 +1,20 @@
 <?php
 /**
  * 检测留言中是否带有中文字，如果没有，则返回出错信息，并不保存该条留言。
- * 登录并具有修改留言权限的用户，留言可以不带有中文字。
+ * 登录用户，留言可以不带有中文字。
  * @param mixed $comment
  * @return mixed
  */
 function scp_check_comment($comment) {
-    if (current_user_can('moderate_comments')) return $comment;
     $options = scp_get_options();
+    if ('unrequired' == $options['login_user'] && is_user_logged_in()) return $comment;
     $commentStr = $comment['comment_content'];
     $pattern = '/[一-龥]/u';
 
     if(!preg_match_all($pattern, $commentStr, $match)){
         $options['message'] = apply_filters('scp_message', $options['message']);
         $options['message'] = apply_filters('display_smilies', $options['message']);
-        exit($options['message']);
+        exit($options['message'] . '<br /><a href="' . $_SERVER['HTTP_REFERER'] .'#respond">返回留言</a>');
     }else{
         return $comment;
     }

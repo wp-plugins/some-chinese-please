@@ -35,6 +35,9 @@ function scp_setting_page() {
         $_POST['show_message'] === 'show'
             ? $options['show_message'] = 'show'
             : $options['show_message'] = 'close';
+        $_POST['login_user'] === 'unrequired'
+            ? $options['login_user'] = 'unrequired'
+            : $options['login_user'] = 'required';
         scp_update_options($options);
         
 ?>
@@ -42,23 +45,29 @@ function scp_setting_page() {
 <?php
     }
     $scp_options = scp_get_options();
+    var_dump($scp_options);
     $scp_blogk_message = attribute_escape($scp_options['message']);
 ?>
-<div class="wrap">
+<div class="wrap" style="margin: 10px;">
     <h2>"Some Chinese Please!"设置</h2>
     <form name="form1" method="post" action="<?php echo wp_nonce_url('./options-general.php?page=' . SCP_BASEFOLDER . '/scp-admin.php'); ?>">
         <input type="hidden" name="scp_submit_hidden" value="yes">
-        <fieldset style="margin: 10px;">
+        <fieldset>
             <legend>"Some Chinese Please!"捕获无中文内容评论时的提示：</legend>
             <textarea name="scp_block_message" cols="80" rows="5" id="scp_block_message" class="scp_setting"><?php echo $scp_blogk_message; ?></textarea>
             <p>提示：可在提示内容中添加表情，使提示更加醒目。例如 :!: ， :)…… </p>
         </fieldset>
-        <fieldset style="margin: 10px;">
+        <fieldset>
             <legend>是否在评论框下端显示提示：</legend>
             <input type="checkbox" name="show_message" id="show_message" <?php if ($scp_options['show_message'] == 'show') echo 'checked="checked"';?> value="show" />
             <label for="show_message">显示</label>
         </fieldset>
-        <fieldset class="submit" style="margin: 10px;">
+        <fieldset>
+            <legend>登录用户是否要通过这个测试：</legend>
+            <input type="checkbox" name="login_user" id="login_user" <?php if ($options['login_user'] == 'unrequired') echo 'checked="checked"'; ?> value="unrequired" />
+            <label for="login_user">不测试</label>
+        </fieldset>
+        <fieldset class="submit">
             <legend>更新选项</legend>
             <input type="submit" name="Submit" value="更新" />
         </fieldset>

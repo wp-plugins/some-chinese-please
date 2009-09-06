@@ -14,6 +14,7 @@ function scp_check_comment($comment) {
     if(!preg_match_all($pattern, $commentStr, $match)){
         $options['message'] = apply_filters('scp_message', $options['message']);
         $options['message'] = apply_filters('display_smilies', $options['message']);
+        header("Content-type: text/html; charset=utf-8");
         exit($options['message'] . '<br /><a href="' . $_SERVER['HTTP_REFERER'] .'#respond">返回留言</a>');
     }else{
         return $comment;

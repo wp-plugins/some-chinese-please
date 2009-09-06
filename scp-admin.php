@@ -45,7 +45,6 @@ function scp_setting_page() {
 <?php
     }
     $scp_options = scp_get_options();
-    var_dump($scp_options);
     $scp_blogk_message = attribute_escape($scp_options['message']);
 ?>
 <div class="wrap" style="margin: 10px;">

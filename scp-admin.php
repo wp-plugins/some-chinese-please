@@ -48,13 +48,11 @@ function scp_setting_page() {
 <?php
     }
     $scp_options = scp_get_options();
-    if (!isset($scp_options['filter_trackback'])) {
-        $scp_options['filter_trackback'] = 'yeah';
-        scp_update_options($options);
-    }
+
     $scp_blogk_message = attribute_escape($scp_options['message']);
 ?>
 <div class="wrap" style="margin: 10px;">
+    <?php //print_r($scp_options); ?>
     <h2>"Some Chinese Please!"设置</h2>
     <form name="form1" method="post" action="<?php echo wp_nonce_url('./options-general.php?page=' . SCP_BASEFOLDER . '/scp-admin.php'); ?>">
         <input type="hidden" name="scp_submit_hidden" value="yes">
@@ -70,12 +68,12 @@ function scp_setting_page() {
         </fieldset>
         <fieldset>
             <legend>登录用户是否要通过这个测试：</legend>
-            <input type="checkbox" name="login_user" id="login_user" <?php if ($options['login_user'] == 'unrequired') echo 'checked="checked"'; ?> value="unrequired" />
+            <input type="checkbox" name="login_user" id="login_user" <?php if ($scp_options['login_user'] == 'unrequired') echo 'checked="checked"'; ?> value="unrequired" />
             <label for="login_user">不测试</label>
         </fieldset>
         <fieldset>
             <legend>是否对trackback(pingback)进行过滤：</legend>
-            <input type="checkbox" name="filter_trackback" id="filter_trackback" <?php if ($options['filter_trackback'] == 'nope') echo 'checked="checked"'; ?> value="nope" />
+            <input type="checkbox" name="filter_trackback" id="filter_trackback" <?php if ($scp_options['filter_trackback'] == 'nope') echo 'checked="checked"'; ?> value="nope" />
             <label for="login_user">不过滤</label>
         </fieldset>
         <fieldset class="submit">

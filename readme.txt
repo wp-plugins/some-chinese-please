@@ -17,7 +17,7 @@ Stable tag: 1.0.7
 
 = 1.0.7 =
 
-* 修復文章不開放留言時javascript報錯，修復啟用插件後ctrl+enter不能正常使用的問題。（謝謝 lite3 提出修復方法 http://goo.gl/1ACNe）
+* 修復文章不開放留言時javascript報錯，修復啟用插件後ctrl+enter不能正常使用的問題。（謝謝 lite3 提出修復方法 http://goo.gl/1ACNe ）
 * 可選擇是否對trackback(pingback)進行過濾
 
 = 1.0.6 =

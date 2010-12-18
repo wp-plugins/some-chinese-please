@@ -3,7 +3,7 @@ Contributors: 冰古
 Donate link: http://wanwp.com/plugins/some-chinese-please/
 Tags: comments, spam, Chinese
 Requires at least: 2.6
-Tested up to: 3.0.2
+Tested up to: 3.0.3
 Stable tag: 1.0.7
 
 用中文写作的blog必备的防御spam插件

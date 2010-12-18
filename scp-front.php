@@ -7,7 +7,12 @@
  */
 function scp_check_comment($comment) {
     $options = scp_get_options();
+
+    // 是否對登錄用戶進行過濾
     if ('unrequired' == $options['login_user'] && is_user_logged_in()) return $comment;
+    // 是否對trackback和pingback進行過濾
+    if (('nope' == $options['filter_trackback']) && ('' != $comment['comment_type'])) return $comment;
+
     $commentStr = $comment['comment_content'];
     $pattern = '/[一-龥]/u';
 
@@ -31,8 +36,18 @@ function scp_js() {
         $options['message'] = apply_filters('display_smilies', $options['message']);
         echo <<<JS
 <script type="text/javascript"><!--//--><![CDATA[//><!--
-    var cf = document.getElementById("commentform");
-    cf.innerHTML += "<p class='scp_message' style='color:#EB5050;clear:both;'>{$options['message']}</p>";
+var cf = document.getElementById("commentform");
+if(cf){
+	var msghtml = "{$options['message']}";
+	if(cf.insertAdjacentHTML){
+		cf.insertAdjacentHTML("afterEnd", msghtml);
+	}else{/* FireFox */
+		var range = cf.ownerDocument.createRange();
+		range.setStartAfter(cf);
+		var frag = range.createContextualFragment(msghtml);
+		cf.parentNode.insertBefore(frag, cf.nextSibling);
+	}
+}
 //--><!]]></script>
 JS;
     }

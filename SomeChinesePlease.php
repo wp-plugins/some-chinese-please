@@ -4,7 +4,7 @@ Plugin Name: Some Chinese Please!
 Plugin URI: http://wanwp.com/plugins/some-chinese-please/
 Description: 这是一个给用中文写作的blogger准备的防御spam的插件。
 Author: 冰古
-Version: 1.0.6
+Version: 1.0.7
 Author URI: http://bingu.net
 License: GNU General Public License 2.0 http://www.gnu.org/licenses/gpl.html
 */
@@ -22,14 +22,19 @@ register_activation_hook(__FILE__, 'scp_set_options');
  * 初始化选项
  */
 function scp_set_options() {
+    // 默認選項
     $message = '<strong>NOTICE:</strong> You should type some Chinese word (like “你好”) in your comment to pass the spam-check, thanks for your patience!';
     $show_message = 'show';
     $logn_user = 'unrequired';
+    $filter_trackback = 'yeah';
+
     $options = array(
         'message' => $message,
         'show_message' => $show_message,
-        'login_user' => $login_user
+        'login_user' => $login_user,
+        'filter_trackback' => $filter_trackback
     );
+    
     add_option('scp_options', $options, '', 'yes');
 }
 
